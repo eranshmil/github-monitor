@@ -1,0 +1,37 @@
+@import '~@angular/material/theming';
+
+$config: mat-typography-config();
+
+.sidenav-container {
+  position: absolute;
+  top: 60px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.mat-toolbar {
+  position: fixed;
+  z-index: 10;
+  @include mat-elevation(5);
+}
+
+.mat-sidenav {
+  min-width: 160px;
+  @include mat-elevation(3);
+
+  .mat-sidenav-container {
+    flex: 1 0 auto;
+  }
+
+  .mat-nav-list .mat-list-item {
+    // padding: 0 16px;
+    font-size: mat-font-size($config, body-1);
+  }
+
+  .mat-list-base .mat-list-item .mat-list-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
