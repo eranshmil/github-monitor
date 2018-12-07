@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-monitor',
+  selector: 'sml-monitor',
   template: '<router-outlet></router-outlet>'
 })
 export class MonitorComponent {}

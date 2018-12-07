@@ -4,7 +4,7 @@ $config: mat-typography-config();
 
 .sidenav-container {
   position: absolute;
-  top: 60px;
+  top: 64px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -16,16 +16,19 @@ $config: mat-typography-config();
   @include mat-elevation(5);
 }
 
+.mat-sidenav-container {
+  flex: 1 0 auto;
+
+  .mat-sidenav-content {
+    padding: 16px;
+  }
+}
+
 .mat-sidenav {
   min-width: 160px;
   @include mat-elevation(3);
 
-  .mat-sidenav-container {
-    flex: 1 0 auto;
-  }
-
   .mat-nav-list .mat-list-item {
-    // padding: 0 16px;
     font-size: mat-font-size($config, body-1);
   }
 

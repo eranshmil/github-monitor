@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-issues',
+  selector: 'sml-issues',
   templateUrl: './issues.component.html',
   styleUrls: ['./issues.component.scss']
 })

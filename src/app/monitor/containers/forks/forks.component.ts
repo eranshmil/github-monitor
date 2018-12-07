@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-forks',
+  selector: 'sml-forks',
   templateUrl: './forks.component.html',
   styleUrls: ['./forks.component.scss']
 })

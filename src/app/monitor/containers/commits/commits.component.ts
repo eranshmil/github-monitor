@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-commits',
+  selector: 'sml-commits',
   templateUrl: './commits.component.html',
   styleUrls: ['./commits.component.scss']
 })
