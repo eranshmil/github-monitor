@@ -15,7 +15,8 @@
     "dev": "concurrently -n client,server \"yarn dev:client\" \"yarn dev:server\"",
     "build": "concurrently -n client,server \"yarn build:client\" \"yarn build:server\"",
     "format": "prettier --write 'src/**/*.{ts,scss,html}'",
-    "postinstall": "if [ \"$NODE_ENV\" = production ]; then yarn build; fi"
+    "postinstall": "if [ \"$NODE_ENV\" = production ]; then yarn build; fi",
+    "start": "node ."
   },
   "private": true,
   "dependencies": {
