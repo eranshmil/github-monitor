@@ -2,18 +2,19 @@
 
 A basic app that monitors an entire GitHub Organization for commits, forks and issues, using Github Webhooks.
 
-## Development server
+## Development
 
+1. Copy .env.example to a new file called .env and update the environment configuration.
 1. Install dependencies:
 
-```bash
-yarn install
-```
+   ```bash
+   yarn install
+   ```
 
-1. Start development server:
+1. Start server:
 
-```bash
-yarn start
-```
+   ```bash
+   yarn dev
+   ```
 
 1. Navigate to `http://localhost:4200/`.
