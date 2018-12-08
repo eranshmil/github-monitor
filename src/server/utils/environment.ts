@@ -8,6 +8,9 @@ if (fs.existsSync('.env')) {
 
 const { env: environment } = process;
 
+/**
+ * Check if we are in production mode (heroku).
+ */
 export function isProd(): boolean {
   return environment.NODE_ENV === 'production';
 }
