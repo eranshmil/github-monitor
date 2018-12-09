@@ -21,7 +21,7 @@ const logger = createLogger({
 });
 
 if (!isProd()) {
-  logger.debug('Logger initialization completed');
+  logger.debug('logger initialization completed');
 }
 
 export default logger;

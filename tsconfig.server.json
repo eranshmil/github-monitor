@@ -7,7 +7,12 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "outDir": "dist/server",
-    "baseUrl": "."
+    "baseUrl": "./",
+    "paths": {
+      "@common/*": [
+        "src/common/*"
+      ]
+    }
   },
   "include": [
     "src/server/**/*"
