@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Attach to process",
+      "type": "node",
+      "request": "attach",
+      "protocol": "inspector",
+      "port": 9229
+    }
+  ]
+}
