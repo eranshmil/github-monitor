@@ -1,1 +1,83 @@
-<p>issues works!</p>
+<sml-filter-input (changed)="applyFilter($event)"></sml-filter-input>
+
+<div class="mat-elevation-z2">
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    matSort
+    matSortActive="issuedAt"
+    matSortDirection="desc"
+    matSortDisableClear
+  >
+    <ng-container matColumnDef="issueId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ 'ISSUES.ISSUE_ID' | translate }}
+      </th>
+      <td mat-cell *matCellDef="let issue">{{ issue?.issueId }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="project">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ 'ISSUES.PROJECT' | translate }}
+      </th>
+      <td mat-cell *matCellDef="let issue">{{ issue?.project }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="issuedAt">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ 'ISSUES.ISSUED_AT' | translate }}
+      </th>
+      <td mat-cell *matCellDef="let issue">
+        {{ issue?.issuedAt | date: 'short' }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ 'ISSUES.USERNAME' | translate }}
+      </th>
+      <td mat-cell *matCellDef="let issue">{{ issue?.username }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ 'ISSUES.TITLE' | translate }}
+      </th>
+      <td mat-cell *matCellDef="let issue">{{ issue?.title }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="state">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ 'ISSUES.STATE' | translate }}
+      </th>
+      <td mat-cell *matCellDef="let issue">
+        <mat-icon
+          *ngIf="issue?.state === issueState.OPEN; else closed"
+          class="mat-icon-octicon"
+          [innerHtml]="'issue-opened' | octicon"
+        ></mat-icon>
+
+        <ng-template #closed
+          ><mat-icon
+            [innerHtml]="'issue-closed' | octicon"
+            class="mat-icon-octicon closed"
+          ></mat-icon
+        ></ng-template>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="open">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let issue">
+        <a [href]="issue?.url" target="_blank">{{
+          'ISSUES.OPEN' | translate
+        }}</a>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="pageSizeOptions"></mat-paginator>
+</div>

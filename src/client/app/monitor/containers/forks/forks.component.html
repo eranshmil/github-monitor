@@ -1,1 +1,47 @@
-<p>forks works!</p>
+<sml-filter-input (changed)="applyFilter($event)"></sml-filter-input>
+
+<div class="mat-elevation-z2">
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    matSort
+    matSortActive="forkedAt"
+    matSortDirection="desc"
+    matSortDisableClear
+  >
+    <ng-container matColumnDef="project">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ 'FORKS.PROJECT' | translate }}
+      </th>
+      <td mat-cell *matCellDef="let fork">{{ fork?.project }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="forkedAt">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ 'FORKS.FORKED_AT' | translate }}
+      </th>
+      <td mat-cell *matCellDef="let fork">
+        {{ fork?.forkedAt | date: 'short' }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ 'FORKS.USERNAME' | translate }}
+      </th>
+      <td mat-cell *matCellDef="let fork">{{ fork?.username }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="open">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let fork">
+        <a [href]="fork?.url" target="_blank">{{ 'FORKS.OPEN' | translate }}</a>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="pageSizeOptions"></mat-paginator>
+</div>

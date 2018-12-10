@@ -4,5 +4,31 @@
     "COMMITS": "Commits",
     "FORKS": "Forks",
     "ISSUES": "Issues"
+  },
+  "FILTER": {
+    "PLACEHOLDER": "Filter"
+  },
+  "COMMITS": {
+    "ID": "#",
+    "PROJECT": "Project",
+    "DATE": "Date",
+    "AUTHOR": "Author",
+    "MESSAGE": "Message",
+    "OPEN": "Open"
+  },
+  "FORKS": {
+    "PROJECT": "Project",
+    "FORKED_AT": "Date",
+    "USERNAME": "Username",
+    "OPEN": "Open"
+  },
+  "ISSUES": {
+    "ISSUE_ID": "#",
+    "PROJECT": "Project",
+    "ISSUED_AT": "Date",
+    "USERNAME": "Username",
+    "TITLE": "Title",
+    "STATE": "State",
+    "OPEN": "Open"
   }
 }

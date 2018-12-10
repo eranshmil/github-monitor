@@ -1,0 +1,10 @@
+$color-issue-opened: #28a745;
+$color-issue-closed: #cb2431;
+
+td.mat-column-state {
+  color: $color-issue-opened;
+
+  .closed {
+    color: $color-issue-closed;
+  }
+}

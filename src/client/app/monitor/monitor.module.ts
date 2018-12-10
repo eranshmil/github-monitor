@@ -4,17 +4,23 @@ import { SharedModule } from '../shared/shared.module';
 
 import { MonitorRoutingModule } from './monitor-routing.module';
 import { MonitorComponent } from './monitor.component';
-import { CommitsComponent } from './containers/commits/commits.component';
-import { ForksComponent } from './containers/forks/forks.component';
-import { IssuesComponent } from './containers/issues/issues.component';
+import {
+  CommitsComponent,
+  ForksComponent,
+  IssuesComponent
+} from './containers';
+import { FilterInputComponent } from './components';
+import { CommitService, ForkService, IssueService } from './services';
 
 @NgModule({
   declarations: [
     MonitorComponent,
     CommitsComponent,
     ForksComponent,
-    IssuesComponent
+    IssuesComponent,
+    FilterInputComponent
   ],
-  imports: [SharedModule, MonitorRoutingModule]
+  imports: [SharedModule, MonitorRoutingModule],
+  providers: [CommitService, ForkService, IssueService]
 })
 export class MonitorModule {}

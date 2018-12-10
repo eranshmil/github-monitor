@@ -6,7 +6,7 @@ export class Commit extends BaseEntity<Commit> {
   commitedAt: Date;
   message: string;
   author: {
-    name: string;
+    username: string;
     email: string;
   };
   url: string;
@@ -16,7 +16,7 @@ export class Commit extends BaseEntity<Commit> {
       id: sha,
       message,
       timestamp: commitedAt,
-      author: { name, ...author },
+      author: { name: username, ...author },
       url
     } = commit;
     const { name: project } = repository;
