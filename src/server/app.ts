@@ -1,19 +1,20 @@
 import * as express from 'express';
 import * as path from 'path';
+import * as cors from 'cors';
 
 import { isProd } from './utils/environment';
 import Mongo from './utils/mongoose';
 
 import * as webhookController from './controllers/webhook';
+import * as commitController from './controllers/commit.controller';
+import * as forkController from './controllers/fork.controller';
+import * as issueController from './controllers/issue.controller';
 
 const app = express();
 
 // Apply express middlewares.
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-// Route for the github webhooks.
-app.post('/webhook', webhookController.webhook);
 
 // Connect to mongo server.
 Mongo.connect();
@@ -25,6 +26,21 @@ if (isProd()) {
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/index.html'));
   });
+} else {
+  // Not needed in production, both client and server hosted in heroku.
+  app.use(cors());
 }
+
+// Github webhook route.
+app.post('/webhook', webhookController.webhook);
+
+// Commit routes.
+app.get('/commit', commitController.list);
+
+// Fork routes.
+app.get('/fork', forkController.list);
+
+// Issue routes.
+app.get('/issue', issueController.list);
 
 export default app;

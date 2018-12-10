@@ -23,6 +23,16 @@ class Mongo {
     if (!isProd()) {
       mongoose.set('debug', true);
     }
+
+    // Remove _id and __v from schema jsons.
+    mongoose.set('toJSON', {
+      transform: (doc: any, ret: any, options: any) => {
+        delete ret._id;
+        delete ret.__v;
+
+        return ret;
+      }
+    });
   }
 
   /**
