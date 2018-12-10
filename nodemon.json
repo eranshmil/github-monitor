@@ -1,9 +1,0 @@
-{
-  "verbose": true,
-  "watch": ["src/server", ".env"],
-  "ext": "ts",
-  "exec": "TS_NODE_PROJECT=tsconfig.server.json node --inspect --require ts-node/register --require tsconfig-paths/register",
-  "args": [
-    "src/server/index.ts"
-  ]
-}

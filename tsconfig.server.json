@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "esModuleInterop": false,
     "target": "es6",
-    "noImplicitAny": true,
     "moduleResolution": "node",
     "sourceMap": true,
     "outDir": "dist/server",
-    "baseUrl": "./",
+    "baseUrl": ".",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
     "paths": {
       "@common/*": [
         "src/common/*"
@@ -15,6 +16,6 @@
     }
   },
   "include": [
-    "src/server/**/*"
+    "src/server/*"
   ]
 }
