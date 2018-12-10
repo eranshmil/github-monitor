@@ -3,6 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'monitor',
+    pathMatch: 'full'
+  },
+  {
     path: 'monitor',
     loadChildren: './monitor/monitor.module#MonitorModule'
   }
