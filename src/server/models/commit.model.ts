@@ -4,7 +4,7 @@ const commitSchema = new mongoose.Schema(
   {
     sha: { type: String, required: true },
     project: { type: String, required: true },
-    commitedAt: { type: Date, required: true, index: true },
+    committedAt: { type: Date, required: true, index: true },
     message: { type: String, required: true },
     author: {
       username: { type: String, required: true },

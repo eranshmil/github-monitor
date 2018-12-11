@@ -14,7 +14,7 @@ export class CommitsComponent extends AbstractTableComponent<Commit> {
   public displayedColumns: string[] = [
     'id',
     'project',
-    'commitedAt',
+    'committedAt',
     'author',
     'message',
     'open'

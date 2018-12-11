@@ -5,7 +5,7 @@
     mat-table
     [dataSource]="dataSource"
     matSort
-    matSortActive="commitedAt"
+    matSortActive="committedAt"
     matSortDirection="desc"
     matSortDisableClear
   >
@@ -23,12 +23,12 @@
       <td mat-cell *matCellDef="let commit">{{ commit?.project }}</td>
     </ng-container>
 
-    <ng-container matColumnDef="commitedAt">
+    <ng-container matColumnDef="committedAt">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>
         {{ 'COMMITS.COMMITED_AT' | translate }}
       </th>
       <td mat-cell *matCellDef="let commit">
-        {{ commit?.commitedAt | date: 'short' }}
+        {{ commit?.committedAt | date: 'short' }}
       </td>
     </ng-container>
 
@@ -37,7 +37,7 @@
         {{ 'COMMITS.AUTHOR' | translate }}
       </th>
       <td mat-cell *matCellDef="let commit">
-        {{ commit?.author?.username }} &lt;{{ commit?.author?.email }}&gt;
+        {{ commit?.author?.username }}
       </td>
     </ng-container>
 
