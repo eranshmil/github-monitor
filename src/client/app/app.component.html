@@ -1,45 +1,50 @@
-<mat-toolbar color="primary">
-  <button mat-icon-button (click)="sidenav.toggle()">
-    <mat-icon>menu</mat-icon>
-  </button>
+<div class="main-container" [class.mobile]="isMobile">
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
 
-  <h1>{{ 'TITLE' | translate }}</h1>
-</mat-toolbar>
+    <h1>{{ 'TITLE' | translate }}</h1>
+  </mat-toolbar>
 
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #sidenav mode="side">
-    <mat-nav-list>
-      <a mat-list-item [routerLink]="['/monitor/commits']">
-        <mat-icon
-          mat-list-icon
-          color="accent"
-          class="mat-icon-octicon"
-          [innerHtml]="'git-commit' | octicon"
-        ></mat-icon>
-        {{ 'SIDENAV.COMMITS' | translate }}
-      </a>
+  <mat-sidenav-container
+    class="sidenav-container"
+    [style.marginTop.px]="isMobile ? 56 : 0"
+  >
+    <mat-sidenav #sidenav [opened]="!isMobile" [mode]="isMobile ? 'over' : 'side'">
+      <mat-nav-list>
+        <a mat-list-item [routerLink]="['/monitor/commits']" routerLinkActive="active">
+          <mat-icon
+            mat-list-icon
+            color="accent"
+            class="mat-icon-octicon"
+            [innerHtml]="'git-commit' | octicon"
+          ></mat-icon>
+          {{ 'SIDENAV.COMMITS' | translate }}
+        </a>
 
-      <a mat-list-item [routerLink]="['/monitor/forks']">
-        <mat-icon
-          mat-list-icon
-          color="accent"
-          class="mat-icon-octicon"
-          [innerHtml]="'repo-forked' | octicon"
-        ></mat-icon>
-        {{ 'SIDENAV.FORKS' | translate }}
-      </a>
+        <a mat-list-item [routerLink]="['/monitor/forks']" routerLinkActive="active">
+          <mat-icon
+            mat-list-icon
+            color="accent"
+            class="mat-icon-octicon"
+            [innerHtml]="'repo-forked' | octicon"
+          ></mat-icon>
+          {{ 'SIDENAV.FORKS' | translate }}
+        </a>
 
-      <a mat-list-item [routerLink]="['/monitor/issues']">
-        <mat-icon
-          mat-list-icon
-          color="accent"
-          class="mat-icon-octicon"
-          [innerHtml]="'bug' | octicon"
-        ></mat-icon>
-        {{ 'SIDENAV.ISSUES' | translate }}
-      </a>
-    </mat-nav-list>
-  </mat-sidenav>
+        <a mat-list-item [routerLink]="['/monitor/issues']" routerLinkActive="active">
+          <mat-icon
+            mat-list-icon
+            color="accent"
+            class="mat-icon-octicon"
+            [innerHtml]="'bug' | octicon"
+          ></mat-icon>
+          {{ 'SIDENAV.ISSUES' | translate }}
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
 
-  <mat-sidenav-content> <router-outlet></router-outlet> </mat-sidenav-content>
-</mat-sidenav-container>
+    <mat-sidenav-content> <router-outlet></router-outlet> </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
