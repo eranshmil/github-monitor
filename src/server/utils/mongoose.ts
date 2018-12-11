@@ -42,7 +42,7 @@ class Mongo {
     mongoose
       .connect(
         environment.MONGODB_URI,
-        { useNewUrlParser: true }
+        { useNewUrlParser: true, useCreateIndex: true }
       )
       .then(instance => (this._connection = instance.connection));
   }

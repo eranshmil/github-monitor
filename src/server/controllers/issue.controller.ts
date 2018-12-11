@@ -9,7 +9,7 @@ import { IssueModel } from '../models';
  * @param res Response information.
  */
 export async function list(req: Request, res: Response) {
-  const issues = await IssueModel.find();
+  const issues = await IssueModel.find().sort('-issuedAt');
 
   res.status(200).json({ issues });
 }

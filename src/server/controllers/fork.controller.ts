@@ -9,7 +9,7 @@ import { ForkModel } from '../models';
  * @param res Response information.
  */
 export async function list(req: Request, res: Response) {
-  const forks = await ForkModel.find();
+  const forks = await ForkModel.find().sort('-forkedAt');
 
   res.status(200).json({ forks });
 }

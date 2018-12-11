@@ -6,7 +6,7 @@ const issueSchema = new mongoose.Schema(
   {
     issueId: { type: Number, required: true },
     project: { type: String, required: true },
-    issuedAt: { type: Date, required: true },
+    issuedAt: { type: Date, required: true, index: true },
     username: { type: String, required: true },
     title: { type: String, required: true },
     state: {

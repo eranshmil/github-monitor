@@ -8,7 +8,7 @@ import { CommitModel } from '../models';
  * @param res Response information.
  */
 export async function list(req: Request, res: Response) {
-  const commits = await CommitModel.find();
+  const commits = await CommitModel.find().sort('-commitedAt');
 
   res.status(200).json({ commits });
 }
