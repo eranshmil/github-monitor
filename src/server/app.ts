@@ -19,18 +19,6 @@ app.use(express.urlencoded({ extended: false }));
 // Connect to mongo server.
 Mongo.connect();
 
-// Serving the angular client for the heroku deployment.
-if (isProd()) {
-  app.use(express.static(path.join(__dirname, 'client')));
-
-  app.get('*', (req: express.Request, res: express.Response) => {
-    res.sendFile(path.join(__dirname, 'client/index.html'));
-  });
-} else {
-  // Not needed in production, both client and server hosted in heroku.
-  app.use(cors());
-}
-
 // Github webhook route.
 app.post('/webhook', webhookController.webhook);
 
@@ -42,5 +30,17 @@ app.get('/fork', forkController.list);
 
 // Issue routes.
 app.get('/issue', issueController.list);
+
+// Serving the angular client for the heroku deployment.
+if (isProd()) {
+  app.use(express.static(path.join(__dirname, 'client')));
+
+  app.get('*', (req: express.Request, res: express.Response) => {
+    res.sendFile(path.join(__dirname, 'client/index.html'));
+  });
+} else {
+  // Not needed in production, both client and server hosted in heroku.
+  app.use(cors());
+}
 
 export default app;
