@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "github-webhooks": {
+    "github-monitor": {
       "root": "",
       "sourceRoot": "src/client/",
       "projectType": "application",
@@ -61,18 +61,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "github-webhooks:build"
+            "browserTarget": "github-monitor:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "github-webhooks:build:production"
+              "browserTarget": "github-monitor:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "github-webhooks:build"
+            "browserTarget": "github-monitor:build"
           }
         },
         "test": {
@@ -107,7 +107,7 @@
         }
       }
     },
-    "github-webhooks-e2e": {
+    "github-monitor-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -116,11 +116,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "github-webhooks:serve"
+            "devServerTarget": "github-monitor:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "github-webhooks:serve:production"
+              "devServerTarget": "github-monitor:serve:production"
             }
           }
         },
@@ -136,5 +136,5 @@
       }
     }
   },
-  "defaultProject": "github-webhooks"
+  "defaultProject": "github-monitor"
 }

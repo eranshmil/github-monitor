@@ -1,5 +1,5 @@
 {
-  "name": "github-webhooks",
+  "name": "github-monitor",
   "version": "0.0.0",
   "engines": {
     "node": ">=8.0.0 <=11.3.0",

@@ -1,10 +1,10 @@
-# Github Webhooks
+# Github Monitor
 
 ![Screenshot](assets/screenshot.png)
 
 A basic app that monitors an entire GitHub Organization for commits, forks and issues, using Github Webhooks.
 
-Live demo: https://sml-github-webhooks.herokuapp.com
+Live demo: https://sml-github-monitor.herokuapp.com
 
 ## Development
 
