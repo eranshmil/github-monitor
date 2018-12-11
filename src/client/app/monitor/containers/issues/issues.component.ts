@@ -3,14 +3,14 @@ import { Component } from '@angular/core';
 import { Issue, IssueState } from '@common/entities';
 
 import { IssueService } from '../../services';
-import { TableContainer } from '../../utils/table-container';
+import { AbstractTableComponent } from '../../utils/abstract-table.component';
 
 @Component({
   selector: 'sml-issues',
   templateUrl: './issues.component.html',
   styleUrls: ['./issues.component.scss']
 })
-export class IssuesComponent extends TableContainer<Issue> {
+export class IssuesComponent extends AbstractTableComponent<Issue> {
   public displayedColumns: string[] = [
     'issueId',
     'project',

@@ -3,18 +3,18 @@ import { Component } from '@angular/core';
 import { Commit } from '@common/entities';
 
 import { CommitService } from '../../services';
-import { TableContainer } from '../../utils/table-container';
+import { AbstractTableComponent } from '../../utils/abstract-table.component';
 
 @Component({
   selector: 'sml-commits',
   templateUrl: './commits.component.html',
   styleUrls: ['./commits.component.scss']
 })
-export class CommitsComponent extends TableContainer<Commit> {
+export class CommitsComponent extends AbstractTableComponent<Commit> {
   public displayedColumns: string[] = [
     'id',
     'project',
-    'date',
+    'commitedAt',
     'author',
     'message',
     'open'

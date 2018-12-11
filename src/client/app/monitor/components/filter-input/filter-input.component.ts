@@ -34,6 +34,9 @@ export class FilterInputComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   * Emit filter value after a 1sec debounce, to prevent excessive filter events.
+   */
   private initKeyUpEvent() {
     this._keyUpEventSubscription = fromEvent(this.filter.nativeElement, 'keyup')
       .pipe(

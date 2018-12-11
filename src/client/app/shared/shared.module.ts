@@ -12,7 +12,9 @@ import {
   MatInputModule,
   MatTableModule,
   MatPaginatorModule,
-  MatSortModule
+  MatSortModule,
+  MatSnackBarModule,
+  MAT_SNACK_BAR_DEFAULT_OPTIONS
 } from '@angular/material';
 
 import { TranslateModule } from '@ngx-translate/core';
@@ -29,11 +31,11 @@ const MATERIAL_MODULES = [
   MatIconModule,
   MatButtonModule,
   MatPaginatorModule,
-  MatSortModule
+  MatSortModule,
+  MatSnackBarModule
 ];
 
 @NgModule({
-  declarations: [],
   imports: [
     CommonModule,
     FormsModule,
@@ -47,6 +49,14 @@ const MATERIAL_MODULES = [
     TranslateModule,
     ...MATERIAL_MODULES,
     PipesModule
+  ],
+  providers: [
+    {
+      provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
+      useValue: {
+        duration: 3000
+      }
+    }
   ]
 })
 export class SharedModule {}

@@ -3,14 +3,14 @@ import { Component } from '@angular/core';
 import { Fork } from '@common/entities';
 
 import { ForkService } from '../../services';
-import { TableContainer } from '../../utils/table-container';
+import { AbstractTableComponent } from '../../utils/abstract-table.component';
 
 @Component({
   selector: 'sml-forks',
   templateUrl: './forks.component.html',
   styleUrls: ['./forks.component.scss']
 })
-export class ForksComponent extends TableContainer<Fork> {
+export class ForksComponent extends AbstractTableComponent<Fork> {
   public displayedColumns: string[] = [
     'project',
     'forkedAt',

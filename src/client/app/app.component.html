@@ -11,9 +11,17 @@
     class="sidenav-container"
     [style.marginTop.px]="isMobile ? 56 : 0"
   >
-    <mat-sidenav #sidenav [opened]="!isMobile" [mode]="isMobile ? 'over' : 'side'">
+    <mat-sidenav
+      #sidenav
+      [opened]="!isMobile"
+      [mode]="isMobile ? 'over' : 'side'"
+    >
       <mat-nav-list>
-        <a mat-list-item [routerLink]="['/monitor/commits']" routerLinkActive="active">
+        <a
+          mat-list-item
+          [routerLink]="['/monitor/commits']"
+          routerLinkActive="active"
+        >
           <mat-icon
             mat-list-icon
             color="accent"
@@ -23,7 +31,11 @@
           {{ 'SIDENAV.COMMITS' | translate }}
         </a>
 
-        <a mat-list-item [routerLink]="['/monitor/forks']" routerLinkActive="active">
+        <a
+          mat-list-item
+          [routerLink]="['/monitor/forks']"
+          routerLinkActive="active"
+        >
           <mat-icon
             mat-list-icon
             color="accent"
@@ -33,7 +45,11 @@
           {{ 'SIDENAV.FORKS' | translate }}
         </a>
 
-        <a mat-list-item [routerLink]="['/monitor/issues']" routerLinkActive="active">
+        <a
+          mat-list-item
+          [routerLink]="['/monitor/issues']"
+          routerLinkActive="active"
+        >
           <mat-icon
             mat-list-icon
             color="accent"

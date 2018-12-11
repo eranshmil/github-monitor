@@ -11,16 +11,18 @@
   "COMMITS": {
     "ID": "#",
     "PROJECT": "Project",
-    "DATE": "Date",
+    "COMMITED_AT": "Date",
     "AUTHOR": "Author",
     "MESSAGE": "Message",
-    "OPEN": "Open"
+    "OPEN": "Open",
+    "ERROR": "Error retrieving issue list, try again later."
   },
   "FORKS": {
     "PROJECT": "Project",
     "FORKED_AT": "Date",
     "USERNAME": "Username",
-    "OPEN": "Open"
+    "OPEN": "Open",
+    "ERROR": "Error retrieving issue list, try again later."
   },
   "ISSUES": {
     "ISSUE_ID": "#",
@@ -29,6 +31,7 @@
     "USERNAME": "Username",
     "TITLE": "Title",
     "STATE": "State",
-    "OPEN": "Open"
+    "OPEN": "Open",
+    "ERROR": "Error retrieving issue list, try again later."
   }
 }
