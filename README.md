@@ -1,10 +1,15 @@
 # Github Webhooks
 
+![Screenshot](assets/screenshot.png)
+
 A basic app that monitors an entire GitHub Organization for commits, forks and issues, using Github Webhooks.
+
+Live demo: https://sml-github-webhooks.herokuapp.com
 
 ## Development
 
 1. Copy .env.example to a new file called .env and update the environment configuration.
+   If you don't want or can't use that method, you can simply define the variables in your environment.
 1. Install dependencies:
 
    ```bash
