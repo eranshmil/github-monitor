@@ -19,6 +19,8 @@ class Mongo {
       logger.error(`mongo connection error: ${error}`);
     });
 
+    mongoose.set('bufferCommands', false);
+
     // Show extra mongo logs.
     if (!isProd()) {
       mongoose.set('debug', true);
@@ -38,13 +40,16 @@ class Mongo {
   /**
    * Connect to mongo server.
    */
-  public connect() {
-    mongoose
-      .connect(
-        environment.MONGODB_URI,
-        { useNewUrlParser: true, useCreateIndex: true }
-      )
-      .then(instance => (this._connection = instance.connection));
+  public async connect() {
+    const instance = await mongoose.connect(
+      environment.MONGODB_URI,
+      {
+        useNewUrlParser: true,
+        useCreateIndex: true
+      }
+    );
+
+    this._connection = instance.connection;
   }
 }
 
