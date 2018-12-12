@@ -1,4 +1,5 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
+
 import { CommitModel } from '../models';
 
 /**
@@ -7,8 +8,12 @@ import { CommitModel } from '../models';
  * @param req Request information.
  * @param res Response information.
  */
-export async function list(req: Request, res: Response) {
-  const commits = await CommitModel.find().sort('-committedAt');
+export async function list(req: Request, res: Response, next: NextFunction) {
+  try {
+    const commits = await CommitModel.find().sort('-committedAt');
 
-  res.status(200).json({ commits });
+    res.status(200).json({ commits });
+  } catch (error) {
+    next(error);
+  }
 }

@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 
 import { IssueModel } from '../models';
 
@@ -8,8 +8,12 @@ import { IssueModel } from '../models';
  * @param req Request information.
  * @param res Response information.
  */
-export async function list(req: Request, res: Response) {
-  const issues = await IssueModel.find().sort('-issuedAt');
+export async function list(req: Request, res: Response, next: NextFunction) {
+  try {
+    const issues = await IssueModel.find().sort('-issuedAt');
 
-  res.status(200).json({ issues });
+    res.status(200).json({ issues });
+  } catch (error) {
+    next(error);
+  }
 }

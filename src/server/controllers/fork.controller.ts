@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 
 import { ForkModel } from '../models';
 
@@ -8,8 +8,12 @@ import { ForkModel } from '../models';
  * @param req Request information.
  * @param res Response information.
  */
-export async function list(req: Request, res: Response) {
-  const forks = await ForkModel.find().sort('-forkedAt');
+export async function list(req: Request, res: Response, next: NextFunction) {
+  try {
+    const forks = await ForkModel.find().sort('-forkedAt');
 
-  res.status(200).json({ forks });
+    res.status(200).json({ forks });
+  } catch (error) {
+    next(error);
+  }
 }

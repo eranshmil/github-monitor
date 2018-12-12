@@ -4,6 +4,7 @@ import * as cors from 'cors';
 
 import { isProd } from './utils/environment';
 import Mongo from './utils/mongoose';
+import errorHandler from './utils/error-handler';
 
 import * as webhookController from './controllers/webhook.controller';
 import * as commitController from './controllers/commit.controller';
@@ -44,5 +45,7 @@ if (isProd()) {
     res.sendFile(path.join(__dirname, 'client/index.html'));
   });
 }
+
+app.use(errorHandler);
 
 export default app;
