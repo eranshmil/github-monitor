@@ -15,11 +15,11 @@ class Mongo {
    */
   private _init() {
     // Listen to error event.
-    mongoose.connection.on('error', error => {
+    mongoose.connection.once('error', error => {
       logger.error(`mongo connection error: ${error}`);
-    });
 
-    mongoose.set('bufferCommands', false);
+      process.exit(1);
+    });
 
     // Show extra mongo logs.
     if (!isProd()) {
@@ -45,7 +45,8 @@ class Mongo {
       environment.MONGODB_URI,
       {
         useNewUrlParser: true,
-        useCreateIndex: true
+        useCreateIndex: true,
+        bufferMaxEntries: 0
       }
     );
 
