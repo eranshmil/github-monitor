@@ -43,8 +43,8 @@ If you don't want to use the operation system's environment variable, such as in
 If you want to debug using VSCode instead of Chrome DevTools, there are two options:
 
 1. Go to the Debugger section and click the play button. (The relevant debug configuration is called `Attach to process`)
-1. Read about `Node: Auto Attach` feature in the article [Debug Your Node.js App in 60 Seconds by John Papa](https://link.medium.com/5K0J0S3FAS).
-   ![Debug Your Node.js App in 60 Seconds](https://cdn-images-1.medium.com/max/1600/1*2jRl81R-mdg8W1KnkLdV9w.gif)
+1. Read about `Node: Auto Attach` feature in the article [Debug Your Node.js App in 60 Seconds by John Papa](https://link.medium.com/5K0J0S3FAS) or in [VSCode documentation](https://code.visualstudio.com/docs/nodejs/nodejs-debugging).
+   ![Using Auto Attach](https://code.visualstudio.com/assets/docs/nodejs/nodejs-debugging/auto-attach.gif)
 
 ## Production build
 
