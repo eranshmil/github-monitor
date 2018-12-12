@@ -1,15 +1,11 @@
 # Github Monitor
 
+Basic app that monitors an entire GitHub Organization for commits, forks and issues, using Github Webhooks.<br>
+Developed with [Express](https://expressjs.com/) and [Angular](https://angular.io).
+
 ![Screenshot](assets/screenshot.png)
 
-A basic app that monitors an entire GitHub Organization for commits, forks and issues, using Github Webhooks.
-
 ## Table of contents
-
-- [Environment variables](#environment-variables)
-- [Development](#development)
-- [Production build](#production-build)
-- [Endpoints](#endpoints)
 
 ## Environment variables
 
@@ -39,6 +35,16 @@ If you don't want to use the operation system's environment variable, such as in
    ```
 
 5. Navigate to `http://localhost:4200/`.
+
+- To debug breakpoints outside the scope of the routes, you need to run the script `yarn dev:server:brk`, that changes the `--inspect` flag into `--inspect-brk`.
+
+### Debugging with VSCode
+
+If you want to debug using VSCode instead of Chrome DevTools, there are two options:
+
+1. Go to the Debugger section and click the play button. (The relevant debug configuration is called `Attach to process`)
+1. Read about `Node: Auto Attach` feature in the article [Debug Your Node.js App in 60 Seconds by John Papa](https://link.medium.com/5K0J0S3FAS).
+   ![Debug Your Node.js App in 60 Seconds](https://cdn-images-1.medium.com/max/1600/1*2jRl81R-mdg8W1KnkLdV9w.gif)
 
 ## Production build
 

@@ -12,6 +12,7 @@
     "build:server": "webpack",
     "dev:client": "ng serve --open",
     "dev:server": "webpack --watch",
+    "dev:server:brk": "INSPECT_BRK=true webpack --watch",
     "dev": "concurrently -n client,server \"yarn dev:client\" \"yarn dev:server\"",
     "build": "concurrently -n client,server \"yarn build:client\" \"yarn build:server\"",
     "format": "prettier --write 'src/**/*.{ts,scss,html}'",

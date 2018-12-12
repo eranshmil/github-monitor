@@ -40,5 +40,18 @@ module.exports = {
     ]
   },
 
-  plugins: [new CheckerPlugin(), new NodemonPlugin()]
+  plugins: [
+    new CheckerPlugin(),
+    new NodemonPlugin({
+      env: { TS_NODE_PROJECT: 'tsconfig.server.json' },
+      nodeArgs: [
+        process.env.INSPECT_BRK ? '--inspect-brk' : '--inspect',
+        '--require=ts-node/register',
+        '--require=tsconfig-paths/register'
+      ],
+      watch: ['src/server', '.env'],
+      ext: 'ts',
+      script: 'src/server/index.ts'
+    })
+  ]
 };
