@@ -1,7 +1,7 @@
 # Github Monitor
 
-Basic app that monitors an entire GitHub Organization for commits, forks and issues, using Github Webhooks.<br>
-Developed with [Express](https://expressjs.com/) and [Angular](https://angular.io).
+Basic app that monitors an entire GitHub Organization for commits, forks, and issues, using Github Webhooks.<br>
+Developed with [Express](https://expressjs.com) and [Angular](https://angular.io).
 
 ![Screenshot](assets/screenshot.png)
 
@@ -17,8 +17,8 @@ Developed with [Express](https://expressjs.com/) and [Angular](https://angular.i
 
 ## Environment variables
 
-The server can fetch the variables also from an `.env` file located in the root path of the project.<br>
-If you don't want to use the operation system's environment variable, such as in your local machine, just create a copy of the file `.env.example`, and name it `.env`.
+The server can read the variables from the `.env` file located in the root path.<br>
+If you don't want to use OS's environment variables, such as in your local machine, just create a copy of the file `.env.example` into `.env`.
 
 ## Development
 
@@ -30,7 +30,7 @@ If you don't want to use the operation system's environment variable, such as in
    yarn install
    ```
 
-4. Start server:
+4. Start the server/client:
 
    ```bash
    yarn dev
@@ -48,15 +48,15 @@ If you don't want to use the operation system's environment variable, such as in
 
 ### Debugging with VSCode
 
-If you want to debug using VSCode instead of Chrome DevTools, there are two options:
+In order to debug with VSCode instead of Chrome DevTools, there are two options:
 
-1. Go to the Debugger section and click the play button. (The relevant debug configuration is called `Attach to process`)
+1. Go to the Debugger section, choose `Attach to process` and click the play button.
 1. Read about `Node: Auto Attach` feature in the article [Debug Your Node.js App in 60 Seconds by John Papa](https://link.medium.com/5K0J0S3FAS) or in [VSCode documentation](https://code.visualstudio.com/docs/nodejs/nodejs-debugging).
    ![Using Auto Attach](https://code.visualstudio.com/assets/docs/nodejs/nodejs-debugging/auto-attach.gif)
 
 ### Webhook testing
 
-First, we need to install a program that exposes our localhost to the internet. If you already use other program, expose port `3000` and skip to the second step.
+First, we need to install a program that exposes our localhost to the internet. If you already use another program, expose port `3000` and skip to the second step.
 
 1. Signup to [ngrok](https://ngrok.com), [download and install](https://ngrok.com/download).
 1. Expose port 3000:
@@ -70,7 +70,7 @@ First, we need to install a program that exposes our localhost to the internet. 
 
    - Payload URL: `https://xxxxxxxx.ngrok.io`
    - Content type: `application/json`
-   - Secret: The `GITHUB_SIGNATURE` defined in your environment
+   - Secret: The `GITHUB_SECRET` defined in your environment
    - Let me select individual events: Pushes, Forks, Issues
 
 ## Production build
@@ -90,8 +90,9 @@ First, we need to install a program that exposes our localhost to the internet. 
 
 1. The server code will be bundled in `dist/server.js` and the client in `dist/client`.
 
-- If you're using Heroku, you can clone this repository, make your changes and enable automatic deployments for your repository.<br>
-  The `postinstall` script will create a build for both server and client and then the `start` script will run the server that serves the client in the base url of your deployment, just like in the demo.
+- If you use Heroku, you can enable [automatic deploy](https://devcenter.heroku.com/articles/github-integration) and the project will work without any further configuration.<br>
+  The `postinstall` script will create a build for both server and client.<br>
+  And the `start` script will run the server that serves the client in the base url of your deployment.
 
 ## Endpoints
 
