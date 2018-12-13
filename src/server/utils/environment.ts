@@ -16,7 +16,12 @@ export function isProd(): boolean {
 }
 
 if (!environment.MONGODB_URI) {
-  console.error('No mongo connection credentials.');
+  console.error('MONGODB_URI is not defined in the environment.');
+  process.exit(1);
+}
+
+if (!environment.GITHUB_SECRET) {
+  console.error('GITHUB_SECRET is not defined in the environment.');
   process.exit(1);
 }
 

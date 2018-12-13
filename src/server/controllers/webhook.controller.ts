@@ -21,7 +21,7 @@ enum EventType {
  */
 function validateSignature(signature: string, payload: any): boolean {
   const computedSignature = crypto
-    .createHmac('sha1', environment.GITHUB_SIGNATURE)
+    .createHmac('sha1', environment.GITHUB_SECRET)
     .update(JSON.stringify(payload))
     .digest('hex');
 
