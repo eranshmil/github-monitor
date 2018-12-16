@@ -1,15 +1,10 @@
 import * as express from 'express';
-import * as path from 'path';
 import * as cors from 'cors';
 
 import { isProd } from './utils/environment';
 import Mongo from './utils/mongoose';
 import errorHandler from './utils/error-handler';
-
-import * as webhookController from './controllers/webhook.controller';
-import * as commitController from './controllers/commit.controller';
-import * as forkController from './controllers/fork.controller';
-import * as issueController from './controllers/issue.controller';
+import routes from './routes';
 
 const app = express();
 
@@ -25,27 +20,7 @@ if (!isProd()) {
 // Connect to mongo server.
 Mongo.connect();
 
-// Github webhook route.
-app.post('/webhook', webhookController.webhook);
-
-// Commit routes.
-app.get('/commit', commitController.list);
-
-// Fork routes.
-app.get('/fork', forkController.list);
-
-// Issue routes.
-app.get('/issue', issueController.list);
-
-// Serving the angular client for the heroku deployment.
-if (isProd()) {
-  app.use(express.static(path.join(__dirname, 'client')));
-
-  app.get('*', (req: express.Request, res: express.Response) => {
-    res.sendFile(path.join(__dirname, 'client/index.html'));
-  });
-}
-
+app.use(routes);
 app.use(errorHandler);
 
 export default app;
