@@ -70,7 +70,12 @@ First, we need to install a program that exposes our localhost to the internet. 
 
    - Payload URL: `https://xxxxxxxx.ngrok.io`
    - Content type: `application/json`
-   - Secret: The `GITHUB_SECRET` defined in your environment
+   - Secret: The `GITHUB_SECRET` defined in your environment, you could generate a random string using:
+
+     ```bash
+     node -p "crypto.randomBytes(20).toString('hex')"
+     ```
+
    - Let me select individual events: Pushes, Forks, Issues
 
 ## Production build
@@ -88,6 +93,8 @@ First, we need to install a program that exposes our localhost to the internet. 
    yarn build:client
    ```
 
+```
+
 1. The server code will be bundled in `dist/server.js` and the client in `dist/client`.
 
 - If you use Heroku, you can enable [automatic deploy](https://devcenter.heroku.com/articles/github-integration) and the project will work without any further configuration.<br>
@@ -103,3 +110,4 @@ First, we need to install a program that exposes our localhost to the internet. 
 | /commit  | GET    | List all commits from PushEvent      |
 | /fork    | GET    | List all forks from ForkEvent        |
 | /issue   | GET    | List all issues from IssuesEvent     |
+```
