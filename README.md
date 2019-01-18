@@ -3,6 +3,8 @@
 Basic app that monitors an entire GitHub Organization for commits, forks, and issues, using Github Webhooks.<br>
 Developed with [Express](https://expressjs.com) and [Angular](https://angular.io).
 
+Demo: https://sml-github-monitor.herokuapp.com
+
 ![Screenshot](assets/screenshot.png)
 
 ## Table of contents
@@ -93,8 +95,6 @@ First, we need to install a program that exposes our localhost to the internet. 
    yarn build:client
    ```
 
-```
-
 1. The server code will be bundled in `dist/server.js` and the client in `dist/client`.
 
 - If you use Heroku, you can enable [automatic deploy](https://devcenter.heroku.com/articles/github-integration) and the project will work without any further configuration.<br>
@@ -110,4 +110,3 @@ First, we need to install a program that exposes our localhost to the internet. 
 | /commit  | GET    | List all commits from PushEvent      |
 | /fork    | GET    | List all forks from ForkEvent        |
 | /issue   | GET    | List all issues from IssuesEvent     |
-```
