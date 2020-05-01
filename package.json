@@ -17,7 +17,9 @@
     "build": "concurrently -n client,server \"yarn build:client\" \"yarn build:server\"",
     "format": "prettier --write \"src/**/*.{ts,scss,html}\"",
     "heroku-postbuild": "yarn build",
-    "start": "node ."
+    "start": "node .",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "private": true,
   "dependencies": {
@@ -46,7 +48,8 @@
     "tslib": "^1.9.0",
     "typescript": "~3.2.4",
     "winston": "^3.1.0",
-    "zone.js": "~0.8.28"
+    "zone.js": "~0.8.28",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.12.2",
@@ -77,5 +80,6 @@
     "webpack": "^4.29.0",
     "webpack-cli": "^3.2.1",
     "webpack-node-externals": "^1.7.2"
-  }
+  },
+  "snyk": true
 }
